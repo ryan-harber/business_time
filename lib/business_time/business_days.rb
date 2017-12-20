@@ -37,6 +37,8 @@ module BusinessTime
     end
 
     def calculate_after(time, days)
+      days -= 1.day if !time.workday? && days > 0
+
       while days > 0 || !time.workday?
         days -= 1 if time.workday?
         time += 1.day
@@ -50,6 +52,8 @@ module BusinessTime
     end
 
     def calculate_before(time, days)
+      days -= 1.day if !time.workday? && days > 0
+
       while days > 0 || !time.workday?
         days -= 1 if time.workday?
         time -= 1.day

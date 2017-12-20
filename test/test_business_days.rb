@@ -56,10 +56,10 @@ describe "business days" do
         assert_equal expected, monday_afternoon
       end
 
-      it "should move to tuesday if we add one business day during a weekend" do
+      it "should move to Monday if we add one business day during a weekend" do
         saturday = Time.parse("April 10th, 2010, 11:00 am")
         later = 1.business_days.after(saturday)
-        expected = Time.parse("April 13th, 2010, 11:00 am")
+        expected = Time.parse("April 12th, 2010, 11:00 am")
         assert_equal expected, later
       end
 
@@ -70,10 +70,10 @@ describe "business days" do
         assert_equal expected, later
       end
 
-      it "should move to thursday if we subtract one business day during a weekend" do
+      it "should move to Friday if we subtract one business day during a weekend" do
         saturday = Time.parse("April 10th, 2010, 11:00 am")
         before = 1.business_days.before(saturday)
-        expected = Time.parse("April 8th, 2010, 11:00 am")
+        expected = Time.parse("April 9th, 2010, 11:00 am")
         assert_equal expected, before
       end
 
@@ -153,10 +153,10 @@ describe "business days" do
         assert_equal expected, friday_afternoon
       end
 
-      it "should move to thursday if we add one negative business day during weekend" do
+      it "should move to Friday if we add one negative business day during weekend" do
         saturday = Time.parse("April 10th, 2010, 11:00 am")
         before = -1.business_days.after(saturday)
-        expected = Time.parse("April 8th, 2010, 11:00 am")
+        expected = Time.parse("April 9th, 2010, 11:00 am")
         assert_equal expected, before
       end
 
@@ -195,10 +195,10 @@ describe "business days" do
         assert_equal expected, later
       end
 
-      it "should move to tuesday if we subtract one negative business day during a weekend" do
+      it "should move to Monday if we subtract one negative business day during a weekend" do
         saturday = Time.parse("April 10th, 2010, 11:00 am")
         later = -1.business_days.before(saturday)
-        expected = Time.parse("April 13th, 2010, 11:00 am")
+        expected = Time.parse("April 12th, 2010, 11:00 am")
         assert_equal expected, later
       end
 

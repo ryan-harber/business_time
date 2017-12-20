@@ -26,3 +26,4 @@ gemfile.lock
 # for binstubs, since this gem has no executables
 bin
 vendor
+Gemfile.lock
